@@ -41,7 +41,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             HappyBirthdayTheme {
                 Surface(color = MaterialTheme.colors.background) {
-                    BirthdayGreetingWithText("Happy Birthday Sam!", "- from Emma")
+                    BirthdayGreetingWithImage(stringResource(R.string.happy_birthday_text), stringResource(R.string.signature_text))
                 }
             }
         }
@@ -52,7 +52,23 @@ class MainActivity : ComponentActivity() {
 @Composable
 private fun BirthdayCardPreview() {
     HappyBirthdayTheme {
-        BirthdayGreetingWithText("Happy Birthday Sam!", "- from Emma")
+        BirthdayGreetingWithImage(stringResource(R.string.happy_birthday_text), stringResource(R.string.signature_text))
+    }
+}
+
+@Composable
+fun BirthdayGreetingWithImage(message: String, from: String) {
+    val image = painterResource(R.drawable.androidparty)
+    Box {
+        Image(
+            painter = image,
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            contentScale = ContentScale.Crop
+        )
+        BirthdayGreetingWithText(message = message, from = from)
     }
 }
 
@@ -61,11 +77,19 @@ fun BirthdayGreetingWithText(message: String, from: String) {
     Column {
         Text(
             text = message,
-            fontSize = 36.sp
+            fontSize = 36.sp,
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentWidth(Alignment.CenterHorizontally)
+                .padding(start = 16.dp, top = 16.dp)
         )
         Text(
             text = from,
-            fontSize = 24.sp
+            fontSize = 24.sp,
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentWidth(Alignment.CenterHorizontally)
+                .padding(start = 16.dp, end = 16.dp)
         )
     }
 }
