@@ -55,11 +55,7 @@ class MainActivity : ComponentActivity() {
 fun AffirmationApp() {
     val context = LocalContext.current
     AffirmationsTheme {
-        Scaffold(
-            content = {
-                AffirmationList(affirmationList = Datasource().loadAffirmations())
-            }
-        )
+        AffirmationList(affirmationList = Datasource().loadAffirmations())
     }
 }
 
