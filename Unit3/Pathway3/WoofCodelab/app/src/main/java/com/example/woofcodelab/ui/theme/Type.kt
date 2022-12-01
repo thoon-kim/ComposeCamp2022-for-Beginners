@@ -23,6 +23,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.woofcodelab.R
 
+val AbrilFatface = FontFamily(
+    Font(R.font.abril_fatface_regular)
+)
+
+val Montserrat = FontFamily(
+    Font(R.font.montserrat_regular),
+    Font(R.font.montserrat_bold, FontWeight.Bold)
+)
+
 val Typography = Typography(
     h1 = TextStyle(
         fontFamily = AbrilFatface,
@@ -44,13 +53,4 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 14.sp
     )
-)
-
-val AbrilFatface = FontFamily(
-    Font(R.font.abril_fatface_regular)
-)
-
-val Montserrat = FontFamily(
-    Font(R.font.montserrat_regular),
-    Font(R.font.montserrat_bold, FontWeight.Bold)
 )
