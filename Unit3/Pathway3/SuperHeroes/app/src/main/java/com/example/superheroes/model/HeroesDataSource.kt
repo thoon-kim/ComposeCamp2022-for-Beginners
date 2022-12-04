@@ -3,7 +3,7 @@ package com.example.superheroes.model
 import com.example.superheroes.R
 import com.example.superheroes.data.Hero
 
-object HeroesRepository {
+object HeroesDataSource {
     val heroes = listOf(
         Hero(
             nameRes = R.string.hero1,
